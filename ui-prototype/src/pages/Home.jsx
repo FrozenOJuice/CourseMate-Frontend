@@ -15,6 +15,8 @@ export default function Home() {
           <div className="home-buttons">
             <Link to="/login" className="btn">Get Started</Link>
             <Link to="/browse" className="btn secondary">Explore Events</Link>
+            {/* 👇 New Explore Clubs button */}
+            <Link to="/clubs" className="btn secondary">Explore Clubs</Link>
           </div>
         </div>
       </div>
