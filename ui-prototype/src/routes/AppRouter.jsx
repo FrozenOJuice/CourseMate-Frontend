@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "../context/AuthContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Home from "../pages/Home";
@@ -18,23 +19,25 @@ import Credits from "../pages/Credits";
 export default function AppRouter() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/browse" element={<Browse />} />
-          <Route path="/browse/:id" element={<EventDetails />} />
-          <Route path="/clubs" element={<Clubs />} />
-          <Route path="/clubs/:id" element={<ClubDetails />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blogs/:id" element={<BlogDetails />} />
-          <Route path="/credits" element={<Credits />} />
-        </Routes>
-      </main>
-      <Footer />
+      <AuthProvider>
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/browse" element={<Browse />} />
+            <Route path="/browse/:id" element={<EventDetails />} />
+            <Route path="/clubs" element={<Clubs />} />
+            <Route path="/clubs/:id" element={<ClubDetails />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blogs/:id" element={<BlogDetails />} />
+            <Route path="/credits" element={<Credits />} />
+          </Routes>
+        </main>
+        <Footer />
+      </AuthProvider>
     </BrowserRouter>
   );
 }

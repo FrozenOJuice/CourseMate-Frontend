@@ -4,27 +4,30 @@ import "../styles/cards.css";
 import { events } from "../data/events";
 import { myClubs } from "../data/myClubs";
 import { blogs } from "../data/blogs";
+import { useAuth } from "../context/AuthContext";
 
 export default function Dashboard() {
+  const { user } = useAuth();
+
   return (
     <div className="dashboard">
       <div className="dashboard-header">
-        <h1>Welcome back, Joel!</h1>
-        <p>Here’s what’s happening around campus this week.</p>
+        <h1>Welcome back{user ? `, ${user.username}` : ""}!</h1>
+        <p>Here's what's happening around campus this week.</p>
       </div>
 
       {/* Stats */}
       <div className="stats-container">
         <div className="stat-card">
-          <h2>12</h2>
+          <h2>3</h2>
           <p>Upcoming Events</p>
         </div>
         <div className="stat-card">
-          <h2>5</h2>
+          <h2>0</h2>
           <p>Joined Clubs</p>
         </div>
         <div className="stat-card">
-          <h2>3</h2>
+          <h2>0</h2>
           <p>Blog Posts</p>
         </div>
       </div>

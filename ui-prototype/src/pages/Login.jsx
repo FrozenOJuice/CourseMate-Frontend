@@ -1,7 +1,18 @@
+import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import "../styles/forms.css";
 
 export default function Login() {
+  const { login } = useAuth();
+  const [username, setUsername] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (username.trim() === "") return;
+    login(username);
+  };
+
   return (
     <div className="auth-container">
       <div className="auth-card">
@@ -12,17 +23,22 @@ export default function Login() {
           </p>
         </div>
 
-        <form className="auth-form">
-          <input type="text" placeholder="Email or Username" />
+        <form className="auth-form" onSubmit={handleLogin}>
+          <input
+            type="text"
+            placeholder="Username or Email"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
           <input type="password" placeholder="Password" />
-          <button type="button" className="auth-btn">
+          <button type="submit" className="auth-btn">
             Login
           </button>
         </form>
 
         <div className="auth-alt">
           <p>
-            Don't have an account? <Link to="/register">Register here</Link>
+            Don’t have an account? <Link to="/register">Register here</Link>
           </p>
         </div>
       </div>

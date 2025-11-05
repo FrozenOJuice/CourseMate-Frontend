@@ -6,7 +6,7 @@ export default function Credits() {
       <div className="credits-card">
         <h1>Project Credits</h1>
         <p className="subtitle">
-          CourseMate UI Prototype · COSC 305 – Project Management
+          CourseMate UI Prototype · COSC 305 - Project Management
         </p>
 
         <section className="team-section">
